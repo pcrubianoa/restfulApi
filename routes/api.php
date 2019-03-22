@@ -18,3 +18,8 @@ Route::post('register', 'API\RegisterController@register');
 Route::middleware('auth:api')->group( function () {
 	Route::resource('products', 'API\ProductController');
 });
+
+Route::get('/route-list', function () {
+    Artisan::call('route:list');
+    return '<pre>'.Artisan::output();
+});
